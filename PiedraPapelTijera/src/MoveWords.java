@@ -6,7 +6,7 @@ public class MoveWords{
     public static final int GANA = 1;
     public static final int PIERDE = 2;
 
-    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA"};
+    private static final String[] validMoves = {"TIJERAS", "PAPEL", "PIEDRA", "LAGARTIJA", "SPOCK"};
     private static final String[] validCommands = {"SALIR", "HELP"};
 
     private Random rnd;
@@ -65,9 +65,25 @@ public class MoveWords{
 	    first_i = getIndex(first);
 	    second_i = getIndex(second);
 
-	    if (first_i == second_i) return EMPATE;
+	    if (first_i == second_i) {
+	    	return EMPATE;
+	    }
+	    else {
+	    	if((first_i == validMoves[0] && (second_i == validMoves[1] || second_i == validMoves[3]))
+	    	  ||(first_i == validMoves[1] && (second_i == validMoves[2] || second_i == validMoves[4]))
+	    	  ||(first_i == validMoves[2] && (second_i == validMoves[3] || second_i == validMoves[0]))
+	    	  ||(first_i == validMoves[3] && (second_i == validMoves[4] || second_i == validMoves[1]))
+	    	  ||(first_i == validMoves[4] && (second_i == validMoves[0] || second_i == validMoves[2]))){
+	    		return GANA;
+	    		
+	    	}
+	    	else 
+	    	{
+	    		retrurn PIERDE;
+	    	}
+	    }
 	    
-	    return (( (first_i +1) % validMoves.length ) == second_i ) ? GANA: PIERDE;
+	    //return (( (first_i +1) % validMoves.length ) == second_i ) ? GANA: PIERDE;
 	}
 	
 } 
