@@ -75,7 +75,6 @@ public class MoveWords{
 	    	  ||(first_i == validMoves[3] && (second_i == validMoves[4] || second_i == validMoves[1]))
 	    	  ||(first_i == validMoves[4] && (second_i == validMoves[0] || second_i == validMoves[2]))){
 	    		return GANA;
-	    		
 	    	}
 	    	else 
 	    	{
